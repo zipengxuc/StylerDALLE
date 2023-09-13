@@ -175,7 +175,7 @@ if __name__ == '__main__':
     parser.add_argument('--base', type=float, default=0.1)
     parser.add_argument('--beta', type=float, default=1.0)
     parser.add_argument('--reward_coeff', type=float, default=1)
-    parser.add_argument('--epochs', type=int, default=40)
+    parser.add_argument('--epochs', type=int, default=4)
     parser.add_argument('--res', type=int, default=32)
     parser.add_argument('--tok_dim', type=int, default=256)
     parser.add_argument('--hidden_dim', type=int, default=512)
