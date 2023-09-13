@@ -92,7 +92,7 @@ if __name__ == '__main__':
     parser.add_argument('--work_dir', default='./ic')
     parser.add_argument('--exp_dir', default='sl')
     parser.add_argument('--lr', type=float, default=1e-4)
-    parser.add_argument('--epochs', type=int, default=40)
+    parser.add_argument('--epochs', type=int, default=20)
     parser.add_argument('--res', type=int, default=32)
     parser.add_argument('--tok_dim', type=int, default=128)
     parser.add_argument('--hidden_dim', type=int, default=512)
