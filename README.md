@@ -60,10 +60,12 @@ They are derived from the original coco annotations but contain only successfull
     
 ## Reference
 ```
-@article{xu2023stylerdalle,
-  title={StylerDALLE: Language-Guided Style Transfer Using a Vector-Quantized Tokenizer of a Large-Scale Generative Model},
-  author={Xu, Zipeng and Sangineto, Enver and Sebe, Nicu},
-  journal={arXiv preprint arXiv:2303.09268},
-  year={2023}
+@InProceedings{Xu2023StylerDALLE,
+    author    = {Xu, Zipeng and Sangineto, Enver and Sebe, Nicu},
+    title     = {StylerDALLE: Language-Guided Style Transfer Using a Vector-Quantized Tokenizer of a Large-Scale Generative Model},
+    booktitle = {Proceedings of the IEEE/CVF International Conference on Computer Vision (ICCV)},
+    month     = {October},
+    year      = {2023},
+    pages     = {7601-7611}
 }
 ```
