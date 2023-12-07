@@ -109,11 +109,11 @@ def main(bs, coco_dir, coco_ann_dir, out_dir):
                 tokens2_0 = torch.index_select(tokens2, 0, indice)
                 tokens3_0 = torch.index_select(tokens3, 0, indice)
                 images32_0 = torch.index_select(images_32, 0, indice)
-                img_id = image_names[j].split('_')[-1].split('.')[0][-6:]
+                img_id = image_names[j].split('_')[-1].split('.')[0]
                 out_data_dir = os.path.join(out_dir, suffix)
-                if not os.path.exists(out_data_path):
+                if not os.path.exists(out_data_dir):
                     os.makedirs(out_data_dir)
-                out_data_path = '%s/coco_ViT-B_%s_%012d.pt' % (out_data_dir, suffix, img_id)
+                out_data_path = '%s/coco_ViT-B_%s_%s.pt' % (out_data_dir, suffix, img_id)
                 torch.save({"vtokens_16": tokens2_0, "vtokens_32": tokens3_0,
                             "images_32": images32_0,
                             "image_name": image_names[j]},
