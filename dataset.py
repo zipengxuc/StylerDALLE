@@ -27,7 +27,7 @@ class StylerDALLERLDataset(Dataset):
         return len(self.data)
 
     def __getitem__(self, item: int) -> Tuple[torch.Tensor, ...]:
-        image_id = '%06d' % self.data[item]['image_id']
+        image_id = self.data[item]['image_id']
         caption = self.data[item]['caption'].lower().strip('.')
         prep_data = torch.load(os.path.join(self.root, 'coco_ViT-B_%s_%012d.pt' % (self.prefix, image_id)))
         token_16 = prep_data["vtokens_16"].flatten()
