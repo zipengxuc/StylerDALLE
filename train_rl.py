@@ -85,7 +85,7 @@ def train(train_dataset, val_dataset, model, args, warmup_steps: int = 5000, exp
             _ = torch.nn.utils.clip_grad_norm_(model.parameters(), 3)
             optimizer.step()
             optimizer.zero_grad()
-            progress.set_postfix({"loss": loss.item(), "reward1": mean_reward_batch.item(), "reward2": mean_reward_batch2.item()})
+            progress.set_postfix({"loss": loss.item(), "reward1": mean_reward_batch.item()})
             progress.update()
             running_loss = bs / (bs + 1) * running_loss + 1 / (bs + 1) * loss.data
             baseline = bs / (bs + 1) * baseline + 1 / (bs + 1) * mean_reward_batch.data
@@ -96,7 +96,7 @@ def train(train_dataset, val_dataset, model, args, warmup_steps: int = 5000, exp
                     os.path.join(output_dir, f"{exp_dir}_{epoch:03d}_{int(cid):02d}.pt"),
                 )
                 with open(os.path.join(output_dir, 'logs.txt'), 'a') as f:
-                    f.write('Train: Epoch - {}, CE - \n{}\n, base1 - \n{}\n, base2 - \n{}\n'.format(epoch, running_loss, baseline, baseline2))
+                    f.write('Train: Epoch - {}, CE - \n{}\n, base1 - \n{}\n'.format(epoch, running_loss, baseline))
 
                 print(f">>> Validation epoch {epoch}")
                 sys.stdout.flush()
