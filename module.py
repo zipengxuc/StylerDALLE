@@ -281,7 +281,7 @@ class StylerDALLEModel(nn.Module):
         input_encodings = F.relu(self.linear_proj(input_encodings))
         y = self.nat_enc(input_encodings)
         input_encodings = input_encodings.view(bs, 16, 16, self.hidden_size)
-        x_ = torch.repeat_interleave(input_encodings, scale, dim=1).view(bs, -1, self.hidden_size)  # bs, 49*4, 768
+        x_ = torch.repeat_interleave(input_encodings, scale, dim=1).view(bs, -1, self.hidden_size)
         x_ = torch.repeat_interleave(x_.view(bs, 16, 16*scale, self.hidden_size), scale, dim=1).view(bs, -1, self.hidden_size)
         outputs = F.dropout(self.nat_dec(x_, y)).view(bs, -1, self.hidden_size)
         output_size = outputs.size()
